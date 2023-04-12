@@ -13,7 +13,7 @@ import os
 
 app=Flask(__name__)
 
-client = MongoClient("mongodb+srv://group3:000Georgian@cluster0.woppbjn.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://user:pass@cluster0.woppbjn.mongodb.net/?retryWrites=true&w=majority")
 db = client["HousingDB"]
 collection = db["HS"]
 reportDF =""

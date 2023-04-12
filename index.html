@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Group #3 Final Project</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+
+                    </ul>
+                    <span class="navbar-text">
+                        Implementing Data Programming solution...
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <br />
+        <h6>Pandas / MongoDB Atlas / Plotly</h6>
+        <div class="row">
+            <div class="col border">
+                <p>
+                <h6 style="color:blue">STEP 1 </h6>
+                In this project, we first retrieve the data from online source :
+                'https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data'
+                Because pandas 2.0 can easily download and import online CSV sources as DataFrame, it wasn't
+                necessary for us to use any request libraries.
+                Pressing the button <a class="btn btn-primary btn-sm" href="{{ url_for('readfromcsv') }}"
+                    role="button">Read
+                    Data</a>
+                will start the process of retrieving the data.Data Description:
+                The data contains some fields which can put effect on price of houses in Houston.
+                <b>To demonstrate the ability of manipulating and aggregating data </b> , then we put the data in
+                buckets as
+                below:
+                20, 20-30 , 30-40 , 40-50 , >50
+                then by aggregating (count), the number of houses in each bucket has been calculated.
+                Following that by using 'pymongo' , the app has ability to connect to MongoDB Atlas Cloud Database
+                and
+                insert the result
+                of previous calculation as "Age Range" ,"MEDV" which MEDV is the price.It is worth mentioning,the
+                code first
+                converts the DataFrame to JSON and then insert it to DB by insert_many method.
+
+
+                </p>
+
+
+            </div>
+            <div class="col border">
+                <p>
+                <h6 style="color:blue">STEP 2 </h6>
+                After loading data, three buttons will appear here.
+                Now the user has ability to:
+                <ol>
+                    <li>See the result of bucketing</li>
+                    <li>Insert the result to MongoDB cloud Database by pressing the button "Insert ..."</li>
+                    <li>See the Bar chart based on the data</li>
+                    <li>See the Pie chart based on the data</li>
+                </ol>
+                Because the account that we used is <b>Free Shared Service</b>, in some cases, users will face with
+                kind of issues.
+                to create and display bar,pie charts we used Plotly, which is great library to add charts and dashboards
+                to projects
+                </p>
+                {% if data %}
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    See the result
+                </button>
+                <a class="btn btn-warning btn-sm" href="{{ url_for('inserttodb') }}">Insert into MongoDB Atlas </a>
+
+                <a class="btn btn-success btn-sm" href="{{ url_for('piechart') }}">See the Pie Chart </a>
+
+                <a class="btn btn-info btn-sm" href="{{ url_for('barchart') }}">See the bar Chart </a>
+
+                {% endif %}
+            </div>
+        </div>
+
+
+
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">the result of retrieve and manipulate Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{data | safe}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

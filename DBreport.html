@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Group #3 Final Project</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"
+                                    onClick="history.go(-1)">Home</a>
+                            </li>
+
+                        </ul>
+                        <span class="navbar-text">
+                            Implementing Data Programming solution...
+                        </span>
+                    </div>
+                </div>
+            </nav>
+            <br />
+
+            <h6>MongoDB report </h6>
+
+            <div class="row">
+                <div class="col border">
+                    <p>
+                    <h6 style="color:blue">What is MongoDB Atlas </h6>
+                    MongoDB Atlas is a fully-managed cloud database service that provides a scalable, secure, and
+                    reliable
+                    database-as-a-service platform for hosting, managing, and deploying MongoDB databases in the cloud.
+                    It
+                    is offered by MongoDB, the company that develops the popular MongoDB NoSQL database software.
+
+                    With MongoDB Atlas, users can easily deploy, scale, and manage their MongoDB databases in the cloud
+                    without having to worry about server management, software updates, and other operational overheads.
+                    MongoDB Atlas supports multiple cloud providers such as AWS, Google Cloud, and Azure, and offers a
+                    variety of features such as automated backups, monitoring, and security controls to help users build
+                    and
+                    run applications with confidence.
+
+                    Overall, MongoDB Atlas provides a robust and flexible platform for deploying and managing MongoDB
+                    databases in the cloud, enabling developers to focus on building their applications instead of
+                    managing
+                    their infrastructure.
+
+                    </p>
+
+
+                </div>
+                <div class="col border">
+                    <p>
+                    <h6 style="color:blue">The Job Is Done </h6>
+
+                    By using insert_many method and storing the result in variable, now we know
+                    the application Successfully inserted <b>{{total}}</b> documents.
+                    The number above passed from flask code here.
+                    it is worth mentioning that document in MongoDB NoSQL database is the corresponding
+                    word for Record in SQL databases.
+                    In MongoDB, the basic unit of data is a document, which is similar to a record in that it represents
+                    a
+                    single instance of an entity or object. However, unlike records in a relational database, documents
+                    in
+                    MongoDB are stored in a JSON-like format, which allows for greater flexibility and dynamic schema
+                    design.
+                    </p>
+                    <a href="#" class="btn btn-primary" onClick="history.go(-1)">Back</a>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
